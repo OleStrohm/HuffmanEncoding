@@ -1,0 +1,58 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/bitarray.cpp
+bitarray.h
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/bitarray.h
+
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/bitarray.h
+bitset
+-
+vector
+-
+iostream
+-
+
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/main.cpp
+iostream
+-
+tree.h
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/tree.h
+bitarray.h
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/bitarray.h
+
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/node.cpp
+node.h
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/node.h
+
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/node.h
+string
+-
+utility
+-
+iostream
+-
+map
+-
+
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/tree.cpp
+tree.h
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/tree.h
+iostream
+-
+
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/tree.h
+node.h
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/node.h
+bitarray.h
+D:/workspace_programming/Workspace C++/CL projects/huffmanTree/bitarray.h
+vector
+-
+map
+-
+
