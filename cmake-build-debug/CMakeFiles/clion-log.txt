@@ -1,4 +1,0 @@
-"D:\programs\CLion\CLion 2017.2.1\bin\cmake\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "D:\workspace_programming\Workspace C++\CL projects\huffmanTree"
--- Configuring done
--- Generating done
--- Build files have been written to: D:/workspace_programming/Workspace C++/CL projects/huffmanTree/cmake-build-debug
