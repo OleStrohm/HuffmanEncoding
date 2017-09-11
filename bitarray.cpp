@@ -102,6 +102,10 @@ void BitArray::add(const BitArray& value) {
 			addBit(i);
 }
 
+char readByte(const unsigned int& position) {
+
+}
+
 void BitArray::updateSize() {
 	totalSize = (unsigned int) (BITSET_SIZE * (bitsets.size() - 1) + localSize);
 }

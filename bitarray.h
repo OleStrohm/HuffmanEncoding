@@ -33,6 +33,8 @@ public:
 	void add(unsigned int value);
 	void add(const BitArray& value);
 	
+	char readByte(const unsigned int& position);
+	
 	inline const unsigned int& getSize() const {
 		return totalSize;
 	}
