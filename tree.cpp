@@ -6,6 +6,32 @@
 
 #include <iostream>
 
+std::string addOne(const std::string& string) {
+	std::string out;
+	bool carry = true;
+	for(int i = (int) string.size() - 1; i >= 0; i--) {
+		char c = string.at(i);
+		if(c == '1') {
+			if(carry) {
+				out.insert(0, 1, '0');
+				carry = true;
+			} else {
+				out.insert(0, 1, '1');
+				carry = false;
+			}
+		} else {
+			if(carry) {
+				out.insert(0, 1, '1');
+				carry = false;
+			} else {
+				out.insert(0, 1, '0');
+				carry = false;
+			}
+		}
+	}
+	return out;
+}
+
 Tree::Tree(std::vector<Leaf*>& data) {
 	if (data.empty())
 		return;
@@ -71,6 +97,24 @@ Tree::Tree(std::vector<Leaf*>& data) {
 	
 	root = internalNodes.back();
 	saveCodes();
+}
+
+Tree::Tree(const std::string* symbols, const unsigned int* lengths, const unsigned int& size) {
+	unsigned int longestCode = 0;
+	for(unsigned int i = 0; i < size; i++) {
+		if(longestCode < lengths[i])
+			longestCode = lengths[i];
+	}
+	
+	std::vector<unsigned int> numCodesOfLength;
+	numCodesOfLength.reserve(longestCode + 1);
+	
+	for(unsigned int i = 0; i < size; i++) {
+		numCodesOfLength[lengths[i]]++;
+	}
+	
+	std::vector<std::string> nextCode;
+	
 }
 
 Tree::~Tree() {
