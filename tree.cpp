@@ -113,8 +113,16 @@ Tree::Tree(const std::string* symbols, const unsigned int* lengths, const unsign
 		numCodesOfLength[lengths[i]]++;
 	}
 	
-	std::vector<std::string> nextCode;
-	
+	std::vector<BitArray*> firstCode;
+	firstCode.reserve(longestCode + 1);
+	firstCode.push_back(new BitArray(0, 1));
+	for(unsigned int i = 0; i < longestCode; i++) {
+		BitArray* newArray = new BitArray(0, i + 1);
+		newArray->add(*firstCode[i]);
+		newArray->addBit(0);
+		newArray->pushBack((bool)0);
+//		firstCode.push_back()
+	}
 }
 
 Tree::~Tree() {

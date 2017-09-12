@@ -36,18 +36,19 @@ int main() {
 	unsigned int lengths[] {
 			4, 3, 4, 2, 3, 3, 3, 3
 	};
-	
-	BitArray intB;
-	intB.pushBack((unsigned char) 17);
+
+	BitArray intB(0, 4);
+	intB.addBit(0);
+	intB.addBit(0);
+	intB.pushBack(false);
 	std::cout << "\n" << intB;
-//	BitArray intB2(2, 4);
-//	std::cout << "\n" << intB2;
 //	intB.add(intB2);
 //	std::cout << "\n" << intB;
 	
-	//Tree treeS(symbols, lengths, 8);
-	//tree.print();
-	
+//	Tree treeS(symbols, lengths, 8);
+//	tree.print();
+
+	std::cout << "\n";
 	return 0;
 }
 

@@ -127,3 +127,7 @@ const std::string BitArray::toString() const {
 std::ostream& operator<<(std::ostream& stream, const BitArray& array) {
 	return stream << array.toString();
 }
+
+std::ostream& operator<<(std::ostream& stream, const BitArray* const array) {
+	return stream << array->toString();
+}
