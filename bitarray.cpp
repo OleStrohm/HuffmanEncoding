@@ -55,12 +55,18 @@ void BitArray::pushBack(const bool& one) {
 	updateSize();
 }
 
+void BitArray::pushBack(const unsigned char& byte) {
+	for(unsigned int i = 0; i < sizeof(byte) * 8; i++) {
+		pushBack((bool)((byte >> i) & 1));
+	}
+}
+
 void BitArray::pushBack(const std::string& bits) {
 	for (char c : bits) {
 		if (c == '0')
-			pushBack(0);
+			pushBack((bool)0);
 		else if (c == '1')
-			pushBack(1);
+			pushBack((bool)1);
 	}
 }
 

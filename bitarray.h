@@ -25,6 +25,7 @@ public:
 	~BitArray();
 	
 	void pushBack(const bool& one);
+	void pushBack(const unsigned char& byte);
 	void pushBack(const std::string& one);
 	void setBit(const unsigned int& pos, bool one);
 	bool getBit(const unsigned int& pos) const;

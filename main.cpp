@@ -37,12 +37,13 @@ int main() {
 			4, 3, 4, 2, 3, 3, 3, 3
 	};
 	
-	BitArray intB(3, 4);
+	BitArray intB;
+	intB.pushBack((unsigned char) 17);
 	std::cout << "\n" << intB;
-	BitArray intB2(2, 4);
-	std::cout << "\n" << intB2;
-	intB.add(intB2);
-	std::cout << "\n" << intB;
+//	BitArray intB2(2, 4);
+//	std::cout << "\n" << intB2;
+//	intB.add(intB2);
+//	std::cout << "\n" << intB;
 	
 	//Tree treeS(symbols, lengths, 8);
 	//tree.print();
