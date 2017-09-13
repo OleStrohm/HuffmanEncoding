@@ -20,7 +20,7 @@ public:
 	BitArray();
 	BitArray(const int& value, unsigned int length);
 	explicit BitArray(std::string& bits);
-	BitArray(const bool* bits, const unsigned int& size);
+	BitArray(const bool* const bits, const unsigned int& size);
 	
 	~BitArray();
 	
@@ -31,10 +31,10 @@ public:
 	bool getBit(const unsigned int& pos) const;
 	
 	void addBit(const unsigned int& position);
-	void add(unsigned int value);
+	void add(const unsigned int& value);
 	void add(const BitArray& value);
 	
-	char readByte(const unsigned int& position);
+	unsigned char read(const unsigned int& position, const unsigned int& length, const bool& reverse = false);
 	
 	inline const unsigned int& getSize() const {
 		return totalSize;

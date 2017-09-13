@@ -31,7 +31,7 @@ BitArray::BitArray(std::string& bits)
 	pushBack(bits);
 }
 
-BitArray::BitArray(const bool* bits, const unsigned int& size)
+BitArray::BitArray(const bool* const bits, const unsigned int& size)
 		: localSize(0), totalSize(0) {
 	current = new std::bitset<BITSET_SIZE>();
 	bitsets.push_back(current);
@@ -47,7 +47,7 @@ BitArray::~BitArray() {
 
 void BitArray::pushBack(const bool& one) {
 	if (localSize == BITSET_SIZE) {
-		current   = new std::bitset<BITSET_SIZE>();
+		current = new std::bitset<BITSET_SIZE>();
 		localSize = 0;
 	}
 	(*current)[localSize] = one;
@@ -56,17 +56,17 @@ void BitArray::pushBack(const bool& one) {
 }
 
 void BitArray::pushBack(const unsigned char& byte) {
-	for(unsigned int i = 0; i < sizeof(byte) * 8; i++) {
-		pushBack((bool)((byte >> i) & 1));
+	for (unsigned int i = 0; i < sizeof(byte) * 8; i++) {
+		pushBack((bool) ((byte >> i) & 1));
 	}
 }
 
 void BitArray::pushBack(const std::string& bits) {
 	for (char c : bits) {
 		if (c == '0')
-			pushBack((bool)0);
+			pushBack((bool) 0);
 		else if (c == '1')
-			pushBack((bool)1);
+			pushBack((bool) 1);
 	}
 }
 
@@ -93,7 +93,7 @@ void BitArray::addBit(const unsigned int& position) {
 	}
 }
 
-void BitArray::add(unsigned int value) {
+void BitArray::add(const unsigned int& value) {
 	for (unsigned int i = 0; i < sizeof(int) * 8; i++) {
 		if ((value >> i) & 0x1)
 			addBit(i);
@@ -103,12 +103,12 @@ void BitArray::add(unsigned int value) {
 void BitArray::add(const BitArray& value) {
 	const unsigned int count = (value.getSize() < getSize() ? value.getSize() : getSize());
 	
-	for(unsigned int i = 0; i < count; i++)
-		if(value.getBit(i))
+	for (unsigned int i = 0; i < count; i++)
+		if (value.getBit(i))
 			addBit(i);
 }
 
-char readByte(const unsigned int& position) {
+unsigned char BitArray::read(const unsigned int& position, const unsigned int& length, const bool& reverse) {
 
 }
 
@@ -118,7 +118,7 @@ void BitArray::updateSize() {
 
 const std::string BitArray::toString() const {
 	std::string out;
-	for (int    i = 0; i < getSize(); i++) {
+	for (unsigned int i = 0; i < getSize(); i++) {
 		out += (getBit(i) ? "1" : "0");
 	}
 	return out;
