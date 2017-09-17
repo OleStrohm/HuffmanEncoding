@@ -34,7 +34,7 @@ private:
 	Node* child1;
 public:
 	InternalNode(Node* child0, Node* child1)
-			: Node(child0->getFrequency() + child1->getFrequency()), child0(child0), child1(child1) {}
+			: Node((child0 ? child0->getFrequency() : 0) + (child1 ? child1->getFrequency() : 0)), child0(child0), child1(child1) {}
 	
 	~InternalNode() override {
 		delete child0;
@@ -50,6 +50,9 @@ public:
 		child0->saveCode(codes, code + "0");
 		child1->saveCode(codes, code + "1");
 	}
+	
+	inline void setChild0(Node* child0) { this->child0 = child0; }
+	inline void setChild1(Node* child1) { this->child1 = child1; }
 	
 	inline Node* getChild0() const { return child0; }
 	inline Node* getChild1() const { return child1; }

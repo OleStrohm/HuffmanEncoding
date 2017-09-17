@@ -7,51 +7,52 @@
 #include "bitarray.h"
 
 int main() {
-//	std::vector<Leaf*> originData = {
-//			new Leaf("A", 1),
-//			new Leaf("B", 5),
-//			new Leaf("C", 4),
-//			new Leaf("D", 13),
-//			new Leaf("E", 5),
-//			new Leaf("F", 5),
-//			new Leaf("G", 5),
-//			new Leaf("H", 4),
+//	std::string symbols[] = {
+//			"A", "B", "C", "D", "E", "F", "G", "H"
 //	};
 //
-//	Tree tree(originData);
+//	unsigned int lengths[8];
+//	lengths[0] = 2;
+//	lengths[1] = 4;
+//	lengths[2] = 4;
+//	lengths[3] = 4;
+//	lengths[4] = 4;
+//	lengths[5] = 3;
+//	lengths[6] = 3;
+//	lengths[7] = 2;
 //
-//	tree.print();
-//	std::cout << "\n\n";
-//	std::cout << "\n\n";
+//	Tree fromLengths(symbols, lengths, 8);
+//	std::cout << std::endl;
+//	fromLengths.print();
 //
-//	std::string comp = "111010001";
-//	BitArray data(comp);
-//	std::cout << comp << " -> " << tree.uncompress(data) << std::endl;
-//	std::cout << "DAB" << " -> " << tree.compress("DAB");
+//	std::cout << std::endl;
+//	std::cout << fromLengths.uncompress("1110001100") << std::endl;
 	
-	std::string symbols[] = {
-			"A", "B", "C", "D", "E", "F", "G", "H"
-	};
+	std::string pngSymbols[288];
+	unsigned int pngLengths[288];
+	for(unsigned int i = 0; i < 288; i++) {
+		pngSymbols[i] = std::to_string(i);
+		if(i <= 143) {
+			pngLengths[i] = 8;
+		} else if(i <= 255) {
+			pngLengths[i] = 9;
+		} else if(i <= 279) {
+			pngLengths[i] = 7;
+		} else {
+			pngLengths[i] = 8;
+		}
+	}
 	
-	unsigned int lengths[] {
-			4, 3, 4, 2, 3, 3, 3, 3
-	};
-
-	BitArray intB(0, 4);
-	intB.addBit(0);
-	intB.addBit(0);
-	intB.pushBack(false);
-	std::cout << "\n" << intB;
-//	intB.add(intB2);
-//	std::cout << "\n" << intB;
+	Tree pngTree(pngSymbols, pngLengths, 288);
+	pngTree.print();
 	
-//	Tree treeS(symbols, lengths, 8);
-//	tree.print();
-
-	std::cout << "\n";
+	unsigned int end; // 1111100001100 11001111 1111100001100
+	std::cout << pngTree.uncompressOneCode("0011000011111111100110000001111001111", 0, end) << std::endl;
+	std::cout << pngTree.uncompressOneCode("0011000011111111100110000001111001111", end, end) << std::endl;
+	std::cout << pngTree.uncompressOneCode("0011000011111111100110000001111001111", end, end) << std::endl;
+	std::cout << pngTree.uncompressOneCode("0011000011111111100110000001111001111", end, end) << std::endl;
+	std::cout << pngTree.uncompressOneCode("0011000011111111100110000001111001111", end, end) << std::endl;
+	std::cout << "Ended at: " << end << std::endl;
+	
 	return 0;
-}
-
-std::map<std::string, int> analyseText() {
-
 }
